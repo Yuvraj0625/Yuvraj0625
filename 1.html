@@ -1,0 +1,63 @@
+port { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+
+export default function Portfolio() {
+  return (
+    <main className="min-h-screen bg-gray-100 p-6">
+      <section className="max-w-4xl mx-auto">
+        <header className="text-center mb-10">
+          <h1 className="text-4xl font-bold mb-2">Hi, I'm Jane Doe</h1>
+          <p className="text-gray-600">Frontend Developer & UI/UX Designer</p>
+        </header>
+
+        <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10"
+        >
+          <Card>
+            <CardContent className="p-4">
+              <h2 className="text-xl font-semibold mb-2">About Me</h2>
+              <p className="text-gray-700">
+                Passionate developer focused on building beautiful and functional user experiences.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardContent className="p-4">
+              <h2 className="text-xl font-semibold mb-2">Skills</h2>
+              <ul className="list-disc list-inside text-gray-700">
+                <li>React.js</li>
+                <li>Tailwind CSS</li>
+                <li>Figma</li>
+                <li>JavaScript / TypeScript</li>
+              </ul>
+            </CardContent>
+          </Card>
+        </motion.section>
+
+        <motion.section
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <h2 className="text-2xl font-semibold mb-4">Projects</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <Card>
+              <CardContent className="p-4">
+                <h3 className="font-bold mb-1">Portfolio Website</h3>
+                <p className="text-gray-700 mb-2">
+                  A responsive portfolio to showcase my skills and projects.
+                </p>
+                <Button variant="outline">View Project</Button>
+              </CardContent>
+            </Card>
+            {/* Add more project cards here */}
+          </div>
+        </motion.section>
+      </section>
+    </main>
+  );
